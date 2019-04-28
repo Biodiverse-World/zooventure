@@ -1,32 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:orientation="vertical">
 
-    <com.google.android.material.bottomappbar.BottomAppBar
-        android:id="@+id/bottomApp"
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_numbers"
         android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:layout_gravity="bottom"
-        android:backgroundTint="@color/colorPrimary"
-        android:elevation="@dimen/four"
-        app:fabCradleRoundedCornerRadius="@dimen/sixteen"
-        app:hideOnScroll="true"
-        app:layout_scrollFlags="scroll|enterAlways" />
+        android:layout_height="match_parent"
+        android:background="@color/colorAccent"
+        android:scrollbars="vertical" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/cameraFab"
-        android:layout_height="wrap_content"
-        android:clickable="true"
-        android:elevation="@dimen/six"
-        android:focusable="true"
-        android:src="@drawable/ic_camera_black_24dp"
-        app:layout_anchor="@id/bottomApp"
-        android:layout_width="wrap_content"
-        app:rippleColor="#ffffff" />
-
-
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</LinearLayout>

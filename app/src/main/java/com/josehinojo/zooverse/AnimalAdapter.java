@@ -1,112 +1,111 @@
 package com.josehinojo.zooverse;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.List;
+import com.google.android.material.snackbar.Snackbar;
+
+import java.util.ArrayList;
 
 public class AnimalAdapter extends RecyclerView.Adapter<AnimalAdapter.ViewHolder> {
 
     String poster;
     AnimalModel model;
     private Context mContext;
-    private List<AnimalModel> animalList;
 
 
-    public AnimalAdapter(Context mContext, List<AnimalModel> satelliteList) {
+    ArrayList<AnimalModel> animalList = new ArrayList<>();
 
-        this.mContext = mContext;
-        this.animalList = satelliteList;
+
+    AnimalModel animal1 = new AnimalModel(R.drawable.tiger);
+    AnimalModel animal2 = new AnimalModel(R.drawable.tigermap);
+    AnimalModel animal3 = new AnimalModel(R.drawable.tiger);
+    AnimalModel animal4 = new AnimalModel(R.drawable.tiger);
+    AnimalModel animal5 = new AnimalModel(R.drawable.tiger);
+    AnimalModel animal6 = new AnimalModel(R.drawable.tiger);
+    AnimalModel animal7 = new AnimalModel(R.drawable.tiger);
+    AnimalModel animal8 = new AnimalModel(R.drawable.tiger);
+    AnimalModel animal9 = new AnimalModel(R.drawable.tiger);
+    AnimalModel animal10 = new AnimalModel(R.drawable.tiger);
+    AnimalModel animal11 = new AnimalModel(R.drawable.tiger);
+    AnimalModel animal12 = new AnimalModel(R.drawable.tiger);
+    AnimalModel animal13 = new AnimalModel(R.drawable.tiger);
+    AnimalModel animal14 = new AnimalModel(R.drawable.tiger);
+    AnimalModel animal15 = new AnimalModel(R.drawable.tiger);
+
+    public void loadData() {
+
+        animalList.add(animal1);
+        animalList.add(animal2);
+        animalList.add(animal3);
+        animalList.add(animal4);
+        animalList.add(animal5);
+        animalList.add(animal6);
+        animalList.add(animal7);
+        animalList.add(animal8);
+        animalList.add(animal9);
+        animalList.add(animal10);
+        animalList.add(animal11);
+        animalList.add(animal12);
+        animalList.add(animal13);
+        animalList.add(animal14);
+        animalList.add(animal15);
+
+
     }
 
-
     @Override
-    public AnimalAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        Context context = parent.getContext();
-        int layoutIdForListItem = R.layout.list_item;
-        LayoutInflater inflater = LayoutInflater.from(context);
-        boolean shouldAttachToParentImmediately = false;
-
-        View view = inflater.inflate(layoutIdForListItem, parent, shouldAttachToParentImmediately);
-        ViewHolder viewHolder = new ViewHolder(view);
-
-
+    public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+        View v = LayoutInflater.from(viewGroup.getContext())
+                .inflate(R.layout.list_item, viewGroup, false);
+        ViewHolder viewHolder = new ViewHolder(v);
         return viewHolder;
     }
 
-
     @Override
-    public void onBindViewHolder(final AnimalAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(ViewHolder viewHolder, int i) {
+        viewHolder.itemImage.setImageResource(Integer.parseInt(String.valueOf(animalList.get(i).getTiger())));
 
-        AnimalModel recordEntries = animalList.get(position);
-
-        //String poster = recordEntries.url;
-
-       /* RequestOptions options = new RequestOptions()
-                .override(Target.SIZE_ORIGINAL)
-                .placeholder(R.drawable.placeholder)
-                .error(R.drawable.placeholder)
-                .priority(Priority.HIGH);
-
-        Glide.with(mContext)
-                .load(poster)
-                .transition(withCrossFade())
-                .apply(options)
-                .into(holder.posterthumbnail);*/
     }
-
 
     @Override
     public int getItemCount() {
-        if (animalList == null) {
-            return 0;
-        }
         return animalList.size();
-    }
-
-    public List<AnimalModel> getRecords() {
-        return animalList;
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {
 
-        ImageView posterthumbnail;
+        public ImageView itemImage;
+        public TextView itemTitle;
+        public TextView itemDetail;
+
 
         public ViewHolder(View itemView) {
             super(itemView);
+            loadData();
+            itemImage =
+                    (ImageView) itemView.findViewById(R.id.item_image);
 
-            posterthumbnail = (ImageView) itemView.findViewById(R.id.rv_image);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onClick(View view) {
-                    int clickedPosition = getAdapterPosition();
-                    AnimalModel clickedItem = animalList.get(clickedPosition);
-
-                    Intent intent = new Intent(mContext, DetailActivity.class);
-                    /*intent.putExtra("passedLat", clickedItem.getLatitude());
-                    intent.putExtra("passedLong", clickedItem.getLongitude());
-                    intent.putExtra("passedDate", clickedItem.getDate());
-                    intent.putExtra("passedImage", clickedItem.getUrl());
-                    intent.putExtra("passedTitle", clickedItem.getTitle());
-                    intent.putExtra("landsatParcel", clickedItem);*/
+                public void onClick(View v) {
+                    int position = getAdapterPosition();
+                    Snackbar.make(v, "Employee: " + animalList.get(position),
+                            Snackbar.LENGTH_LONG)
+                            .setAction("Action", null).show();
 
 
-                    mContext.startActivity(intent);
                 }
             });
+
         }
     }
 
-    //public void setRecords(List<animalList> recordEntries) {
-    //animalList = recordEntries;
-    //notifyDataSetChanged();
 }
-
-

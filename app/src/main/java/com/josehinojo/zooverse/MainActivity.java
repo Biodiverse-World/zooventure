@@ -4,45 +4,71 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.android.material.bottomappbar.BottomAppBar;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.ArrayList;
 
 
 public class MainActivity extends AppCompatActivity {
 
-    BottomAppBar bottomAppBar;
-    FloatingActionButton floatingActionButton;
+
+    FirebaseDatabase database;
+    DatabaseReference zooReference;
+
+    RecyclerView recyclerView;
+    RecyclerView.LayoutManager layoutManager;
+    RecyclerView.Adapter adapter;
+
+    ArrayList<AnimalModel> list = new ArrayList<AnimalModel>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-        bottomAppBar = (BottomAppBar) findViewById(R.id.bottomApp);
-        floatingActionButton = (FloatingActionButton) findViewById(R.id.cameraFab);
-        bottomAppBar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "stop", Toast.LENGTH_SHORT).show();
-            }
-        });
-        floatingActionButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
-
-        setSupportActionBar(bottomAppBar);
+        database = FirebaseDatabase.getInstance();
+        zooReference = database.getReference("animals");
 
 
-        //shtopiahd;oaisjdf;ojsdf
+        recyclerView =
+                (RecyclerView) findViewById(R.id.rv_numbers);
+
+
+        adapter = new AnimalAdapter();
+        recyclerView.setAdapter(adapter);
+
+        layoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
+
+
+
+
+
+
+     /*   if (getApplicationContext().getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
+            layoutManager = new GridLayoutManager(this, 1);
+            recyclerView.setLayoutManager(layoutManager);
+            adapter.notifyDataSetChanged();
+        } else if (getApplicationContext().getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            layoutManager = new GridLayoutManager(this, 2);
+            recyclerView.setLayoutManager(layoutManager);
+           adapter.notifyDataSetChanged();
+        }*/
+
+
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+
+
+
+        
+
     }
 
     @Override

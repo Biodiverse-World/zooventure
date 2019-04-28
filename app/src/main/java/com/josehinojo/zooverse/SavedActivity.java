@@ -1,13 +1,9 @@
 package com.josehinojo.zooverse;
 
-import android.app.Dialog;
 import android.content.res.Configuration;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -26,7 +22,7 @@ public class SavedActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.saved_records);
+        //setContentView(R.layout.animal_list);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         //loadSatImages();
