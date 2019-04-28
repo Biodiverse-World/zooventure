@@ -7,15 +7,20 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.josehinojo.zooverse.POJOS.Animal;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 
@@ -35,14 +40,7 @@ public class MainActivity extends AppCompatActivity {
         database = FirebaseDatabase.getInstance();
         zooReference = database.getReference("animals");
 
-        Animal animal = new Animal("white stork","habitat alteration, shortage of nesting sites, excessive use of pesticides, collision with and electrocution from overhead powerlines, hunted for food and sport","Bird",
-                "https://www.iucnredlist.org/species/22697691/86248677","Ciconia ciconia"
-        ,"Grassland, Artificial/Terrestrial","Europe, North Africa, Asia Minor, and the Middle East",
-                "Least Concern","White Stork","BirdLife International 2016. Ciconia ciconia. The IUCN Red List of Threatened Species 2016: e.T22697691A86248677. http://dx.doi.org/10.2305/IUCN.UK.2016-3.RLTS.T22697691A86248677.en. Downloaded on 27 April 2019.");
-
-
-
-
+        
         bottomAppBar = (BottomAppBar) findViewById(R.id.bottomApp);
         floatingActionButton = (FloatingActionButton) findViewById(R.id.cameraFab);
         bottomAppBar.setNavigationOnClickListener(new View.OnClickListener() {
