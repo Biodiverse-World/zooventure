@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "630548059779",
+    "firebase_url": "https://zooventure.firebaseio.com",
+    "project_id": "zooventure",
+    "storage_bucket": "zooventure.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:630548059779:android:42ebb093319107a0",
+        "android_client_info": {
+          "package_name": "com.josehinojo.zoovers"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "630548059779-s2d5o8tsk9e5b36cf9dsjmqsa7j5b72f.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.josehinojo.zoovers",
+            "certificate_hash": "947d3574bfe72d48632f846838b4d089b7a3dede"
+          }
+        },
+        {
+          "client_id": "630548059779-scbq6cd0gut1gk3sglil4bteghgbnt7f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBlTXMP7IMpLyoxCEFSp2pQnJe5cCTOXz0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "630548059779-scbq6cd0gut1gk3sglil4bteghgbnt7f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
