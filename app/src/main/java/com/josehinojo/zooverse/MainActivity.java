@@ -2,16 +2,22 @@ package com.josehinojo.zooverse;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.josehinojo.zooverse.POJOS.Animal;
 
 import java.util.ArrayList;
 
@@ -26,29 +32,39 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView.LayoutManager layoutManager;
     RecyclerView.Adapter adapter;
 
-    ArrayList<AnimalModel> list = new ArrayList<AnimalModel>();
+    ArrayList<Animal> animalList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+        recyclerView = findViewById(R.id.rv_numbers);
+
         database = FirebaseDatabase.getInstance();
-        zooReference = database.getReference("animals");
-
-
-        recyclerView =
-                (RecyclerView) findViewById(R.id.rv_numbers);
-
-
-        adapter = new AnimalAdapter();
+        zooReference = database.getReference("Animals");
+        adapter = new AnimalAdapter(animalList);
         recyclerView.setAdapter(adapter);
-
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
+        zooReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for(DataSnapshot snapshot: dataSnapshot.getChildren()){
+                    Animal animal = snapshot.getValue(Animal.class);
+                    animalList.add(animal);
+                }
+                adapter.notifyDataSetChanged();
 
+            }
 
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
 
 
 

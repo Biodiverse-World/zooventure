@@ -1,5 +1,8 @@
 package com.josehinojo.zooverse.POJOS;
 
+import com.google.firebase.database.IgnoreExtraProperties;
+
+@IgnoreExtraProperties
 public class Animal {
 
     private String name;
@@ -12,6 +15,10 @@ public class Animal {
     private String conservationStatus;
     private String commonName;
     private String Citation;
+
+    public Animal(){
+
+    }
 
     public Animal(String name, String threats, String taxon, String source, String scientificName, String habitat, String geoRange, String conservationStatus, String commonName, String citation) {
         this.name = name;
