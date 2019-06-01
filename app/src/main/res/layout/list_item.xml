@@ -3,22 +3,35 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto">
 
     <!--TODO Redesign list item layout-->
 
-    <TextView
-        android:id="@+id/animalName"
+    <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/card_view"
+        android:layout_gravity="center"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/sixteen"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+        android:layout_height="200dp"
+        card_view:cardCornerRadius="6dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:background="@color/secondaryColor">
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/six"
-        android:background="@color/colorPrimary"
-        />
+        <TextView
+            android:id="@+id/animalName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="25dp"
+            android:textAllCaps="true"
+            android:textAlignment="center"
+            tools:text="animal"
+            android:padding="8dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+
+            android:background="@color/secondaryColor" />
+    </androidx.cardview.widget.CardView>
 
 
 </LinearLayout>
