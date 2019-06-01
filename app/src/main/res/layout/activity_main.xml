@@ -9,7 +9,9 @@
         android:id="@+id/rv_numbers"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorAccent"
-        android:scrollbars="vertical" />
+        android:scrollbars="vertical"
+        android:background="@color/colorBrown"
+
+        />
 
 </LinearLayout>
