@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
 
         database = FirebaseDatabase.getInstance();
         zooReference = database.getReference("Animals");
-        adapter = new AnimalAdapter(animalList);
+        adapter = new AnimalAdapter(this, animalList);
         recyclerView.setAdapter(adapter);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);

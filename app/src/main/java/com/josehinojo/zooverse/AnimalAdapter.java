@@ -1,6 +1,7 @@
 package com.josehinojo.zooverse;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,8 +20,9 @@ public class AnimalAdapter extends RecyclerView.Adapter<AnimalAdapter.ViewHolder
     private Context mContext;
     ArrayList<Animal> animalList;
 
-    public AnimalAdapter(ArrayList<Animal> animalList){
+    public AnimalAdapter(Context mContext, ArrayList<Animal> animalList) {
         this.animalList = animalList;
+        this.mContext = mContext;
     }
 
     @Override
@@ -50,6 +52,18 @@ public class AnimalAdapter extends RecyclerView.Adapter<AnimalAdapter.ViewHolder
             super(itemView);
 
             animalName = itemView.findViewById(R.id.animalName);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int clickedPosition = getAdapterPosition();
+                    Animal clickedItem = animalList.get(clickedPosition);
+                    Intent intent = new Intent(mContext, DetailActivity.class);
+
+//intent.putExtra("itemclick", clickedItem);
+                    mContext.startActivity(intent);
+                }
+            });
 
         }
     }
