@@ -59,8 +59,7 @@ public class AnimalAdapter extends RecyclerView.Adapter<AnimalAdapter.ViewHolder
                     int clickedPosition = getAdapterPosition();
                     Animal clickedItem = animalList.get(clickedPosition);
                     Intent intent = new Intent(mContext, DetailActivity.class);
-
-//intent.putExtra("itemclick", clickedItem);
+                    intent.putExtra("ANIMAL_KEY", clickedItem);
                     mContext.startActivity(intent);
                 }
             });
