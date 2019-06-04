@@ -17,11 +17,10 @@
 
 
             <ImageView
-                android:id="@+id/imageView"
+                android:id="@+id/iV"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:scaleType="matrix"
-                android:src="@drawable/tiger"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:layout_editor_absoluteX="-16dp" />
 
@@ -31,7 +30,7 @@
                 android:layout_height="41dp"
                 android:background="@color/secondaryColor"
                 android:orientation="horizontal"
-                app:layout_constraintTop_toBottomOf="@+id/imageView">
+                app:layout_constraintTop_toBottomOf="@+id/iV">
 
                 <TextView
                     android:layout_width="match_parent"
