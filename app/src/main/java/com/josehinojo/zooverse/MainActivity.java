@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
 
     ArrayList<Animal> animalList = new ArrayList<>();
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

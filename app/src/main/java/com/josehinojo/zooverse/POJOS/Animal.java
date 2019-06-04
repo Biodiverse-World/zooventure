@@ -1,9 +1,12 @@
 package com.josehinojo.zooverse.POJOS;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.firebase.database.IgnoreExtraProperties;
 
 @IgnoreExtraProperties
-public class Animal {
+public class Animal implements Parcelable {
 
     private String name;
     private String threats;
@@ -116,4 +119,51 @@ public class Animal {
     public void setCitation(String citation) {
         Citation = citation;
     }
+
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(this.name);
+        dest.writeString(this.threats);
+        dest.writeString(this.taxon);
+        dest.writeString(this.source);
+        dest.writeString(this.scientificName);
+        dest.writeString(this.habitat);
+        dest.writeString(this.geoRange);
+        dest.writeString(this.conservationStatus);
+        dest.writeString(this.commonName);
+        dest.writeString(this.Citation);
+    }
+
+    protected Animal(Parcel in) {
+        this.name = in.readString();
+        this.threats = in.readString();
+        this.taxon = in.readString();
+        this.source = in.readString();
+        this.scientificName = in.readString();
+        this.habitat = in.readString();
+        this.geoRange = in.readString();
+        this.conservationStatus = in.readString();
+        this.commonName = in.readString();
+        this.Citation = in.readString();
+    }
+
+    public static final Parcelable.Creator<Animal> CREATOR = new Parcelable.Creator<Animal>() {
+        @Override
+        public Animal createFromParcel(Parcel source) {
+            return new Animal(source);
+        }
+
+        @Override
+        public Animal[] newArray(int size) {
+            return new Animal[size];
+        }
+    };
 }
+
+

@@ -17,11 +17,10 @@
 
 
             <ImageView
-                android:id="@+id/imageView"
+                android:id="@+id/iV"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:scaleType="matrix"
-                android:src="@drawable/tiger"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:layout_editor_absoluteX="-16dp" />
 
@@ -31,7 +30,7 @@
                 android:layout_height="41dp"
                 android:background="@color/secondaryColor"
                 android:orientation="horizontal"
-                app:layout_constraintTop_toBottomOf="@+id/imageView">
+                app:layout_constraintTop_toBottomOf="@+id/iV">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -39,6 +38,9 @@
                     android:layout_marginLeft="16dp"
                     android:layout_weight="1"
                     android:text="Tiger"
+                    android:textAllCaps="true"
+                    android:gravity="center"
+                    android:id="@+id/animalName"
                     android:textSize="30dp"
                     android:textStyle="bold" />
 
@@ -47,7 +49,10 @@
                     android:layout_height="wrap_content"
                     android:layout_marginRight="16dp"
                     android:layout_weight="1"
-                    android:text="Panthera tigris"
+                    android:gravity="center"
+                    tools:text="pantheras"
+                    android:textAllCaps="true"
+                    android:id="@+id/scientificName"
                     android:textSize="30dp"
                     android:textStyle="italic" />
 
@@ -92,10 +97,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Tigers are found mainly in the forests of tropical Asia, although they
-                historically occurred more widely in drier and colder climes. One subspecies, the Amur
-                Tiger P. t. altaica, persists in the Russian Far East. Photos of Tigers up to 4,500 m
-                have been obtained in Bhutan (Wang 2008)."
+                android:id="@+id/habitatEcology"
                 android:textSize="20dp" />
 
             <TextView
@@ -109,8 +111,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Residential &amp; commercial development, Agriculture &amp; aquaculture, Energy production &amp; mining, Biological resource use +
-Human intrusions &amp; disturbance, Natural system modifications, nvasive  and other problematic species, genes &amp; diseases"
+                android:id="@+id/threats"
                 android:textSize="20dp" />
 
         </LinearLayout>
