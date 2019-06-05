@@ -18,7 +18,6 @@ import java.util.ArrayList;
 
 public class AnimalAdapter extends RecyclerView.Adapter<AnimalAdapter.ViewHolder> {
 
-    String poster;
     private Context mContext;
     ArrayList<Animal> animalList;
 
@@ -38,8 +37,45 @@ public class AnimalAdapter extends RecyclerView.Adapter<AnimalAdapter.ViewHolder
     public void onBindViewHolder(ViewHolder viewHolder, int i) {
         viewHolder.animalName.setText(animalList.get(i).getName());
 
-        if (i == 0) {
+        animalImage(viewHolder, i);
 
+
+    }
+
+    @Override
+    public int getItemCount() {
+        return animalList.size();
+    }
+
+    class ViewHolder extends RecyclerView.ViewHolder {
+
+        public TextView animalName;
+        public ImageView imageView;
+
+
+        public ViewHolder(View itemView) {
+            super(itemView);
+
+            animalName = itemView.findViewById(R.id.animalName);
+            imageView = itemView.findViewById(R.id.animalImage);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int clickedPosition = getAdapterPosition();
+                    Animal clickedItem = animalList.get(clickedPosition);
+                    Intent intent = new Intent(mContext, DetailActivity.class);
+                    intent.putExtra("ANIMAL_KEY", clickedItem);
+                    mContext.startActivity(intent);
+                }
+            });
+
+        }
+    }
+
+    public void animalImage(ViewHolder viewHolder, int i) {
+
+        if (i == 0) {
             Glide.with(mContext)
                     .load(R.drawable.hoodedvulture)
                     .into(viewHolder.imageView);
@@ -100,38 +136,6 @@ public class AnimalAdapter extends RecyclerView.Adapter<AnimalAdapter.ViewHolder
             Glide.with(mContext)
                     .load(R.drawable.asiansmallclawedotter)
                     .into(viewHolder.imageView);
-        }
-
-    }
-
-    @Override
-    public int getItemCount() {
-        return animalList.size();
-    }
-
-    class ViewHolder extends RecyclerView.ViewHolder {
-
-        public TextView animalName;
-        public ImageView imageView;
-
-
-        public ViewHolder(View itemView) {
-            super(itemView);
-
-            animalName = itemView.findViewById(R.id.animalName);
-            imageView = itemView.findViewById(R.id.animalImage);
-
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    int clickedPosition = getAdapterPosition();
-                    Animal clickedItem = animalList.get(clickedPosition);
-                    Intent intent = new Intent(mContext, DetailActivity.class);
-                    intent.putExtra("ANIMAL_KEY", clickedItem);
-                    mContext.startActivity(intent);
-                }
-            });
-
         }
     }
 
