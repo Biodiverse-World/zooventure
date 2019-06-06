@@ -78,66 +78,79 @@ public class AnimalAdapter extends RecyclerView.Adapter<AnimalAdapter.ViewHolder
         if (i == 0) {
             Glide.with(mContext)
                     .load(R.drawable.hoodedvulture)
+                    .fitCenter()
                     .into(viewHolder.imageView);
 
         } else if (i == 1) {
             Glide.with(mContext)
                     .load(R.drawable.nilecrocodile)
+                    .fitCenter()
                     .into(viewHolder.imageView);
         } else if (i == 2) {
             Glide.with(mContext)
                     .load(R.drawable.hyacinthmacaw)
+                    .fitCenter()
                     .into(viewHolder.imageView);
         } else if (i == 3) {
             Glide.with(mContext)
                     .load(R.drawable.wreathedhornbill)
+                    .fitCenter()
                     .into(viewHolder.imageView);
         } else if (i == 4) {
             Glide.with(mContext)
                     .load(R.drawable.lesserflamingo)
+                    .fitCenter()
                     .into(viewHolder.imageView);
         } else if (i == 5) {
             Glide.with(mContext)
                     .load(R.drawable.redcrownedcrane)
+                    .fitCenter()
                     .into(viewHolder.imageView);
         } else if (i == 6) {
             Glide.with(mContext)
                     .load(R.drawable.grevyszebra)
+                    .fitCenter()
                     .into(viewHolder.imageView);
         } else if (i == 7) {
             Glide.with(mContext)
                     .load(R.drawable.westerngorilla)
+                    .fitCenter()
                     .into(viewHolder.imageView);
         } else if (i == 8) {
             Glide.with(mContext)
                     .load(R.drawable.blackspottednewt)
+                    .fitCenter()
                     .into(viewHolder.imageView);
         } else if (i == 9) {
             Glide.with(mContext)
                     .load(R.drawable.axolotl)
+                    .fitCenter()
                     .into(viewHolder.imageView);
         } else if (i == 10) {
             Glide.with(mContext)
                     .load(R.drawable.komododragon)
+                    .fitCenter()
                     .into(viewHolder.imageView);
         } else if (i == 11) {
             Glide.with(mContext)
                     .load(R.drawable.peacocktarantula)
+                    .fitCenter()
                     .into(viewHolder.imageView);
         } else if (i == 12) {
             Glide.with(mContext)
                     .load(R.drawable.sumatrantiger)
+                    .fitCenter()
                     .into(viewHolder.imageView);
         } else if (i == 13) {
             Glide.with(mContext)
                     .load(R.drawable.hippopotamus)
+                    .fitCenter()
                     .into(viewHolder.imageView);
         } else if (i == 14) {
             Glide.with(mContext)
                     .load(R.drawable.asiansmallclawedotter)
+                    .fitCenter()
                     .into(viewHolder.imageView);
         }
     }
-
-
 }
